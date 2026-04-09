@@ -1,0 +1,115 @@
+:: StoryTitle
+História sem Título
+
+
+:: StoryData
+{
+  "ifid": "54F18A44-03C1-44DD-A95E-55C5E2BC7C72",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Título",
+  "zoom": 1
+}
+
+
+:: ESCRITOS {"position":"725,400","size":"100,100"}
+(link-goto: "Voltar à Seleção", "Seleção")
+
+
+:: PEÇAS FINAIS {"position":"725,300","size":"100,100"}
+<div class="reference">
+(set: _peças to 
+	(dm:
+    	"XXX", "Image of final"
+    )
+)
+
+(for: each _p, ...(dm-values: _peças))
+	[
+    	_p
+    ]
+    
+</div>
+(link-goto: "Voltar à Seleção", "Seleção")
+
+
+:: PROCESSO {"position":"725,200","size":"100,100"}
+<div class="reference">
+(set: _processo to
+    (ds:
+        "<img src='https://raw.githubusercontent.com/luizbiondealmeida-pixel/ceramica/main/IMG_20260406_213832913.jpg'>",
+        "<img src='https://raw.githubusercontent.com/luizbiondealmeida-pixel/ceramica/main/IMG_20260406_213835341.jpg'>",
+        "<img src='https://raw.githubusercontent.com/luizbiondealmeida-pixel/ceramica/main/IMG_20260406_213844572.jpg'>",
+        "<img src='https://raw.githubusercontent.com/luizbiondealmeida-pixel/ceramica/main/IMG_20260407_192229816_HDR.jpg'>",
+        "<img src='https://raw.githubusercontent.com/luizbiondealmeida-pixel/ceramica/main/IMG_20260407_203705211.jpg'>",
+        "<img src='https://raw.githubusercontent.com/luizbiondealmeida-pixel/ceramica/main/IMG_20260409_083245696.jpg'>",
+        "<img src='https://raw.githubusercontent.com/luizbiondealmeida-pixel/ceramica/main/IMG_20260409_083653219.jpg'>",
+        "<img src= 'https://github.com/luizbiondealmeida-pixel/ceramica/blob/main/IMG_20260313_164007267.jpg?raw=true'>",
+        "<img src='https://github.com/luizbiondealmeida-pixel/ceramica/blob/main/IMG_20260330_202539668.jpg?raw=true'>",
+        "<img src='https://github.com/luizbiondealmeida-pixel/ceramica/blob/main/IMG_20260330_202535497.jpg?raw=true'>",
+        "<img src='https://github.com/luizbiondealmeida-pixel/ceramica/blob/main/IMG_20260309_212743965.jpg?raw=true'>"
+    )
+)
+
+(for: each _p, ..._processo)
+	[_p]
+    
+   </div>
+   (link-goto: "Voltar à Seleção", "Seleção")
+
+
+:: REFERÊNCIAS {"position":"725,100","size":"100,100"}
+<div class="reference">
+(set: _references to
+	(dm:
+    	"Death of Don Juan by Mario Prassinos", "<img src='https://biblioklept.org/wp-content/uploads/2017/06/le-mort-de-don-juan-1935.jpg'>",
+        "The Great Wall of Vagina by Jamie McCartney", "<img src='https://i2-prod.mirror.co.uk/article5436542.ece/ALTERNATES/s1200e/Jamie-McCartney-with-his-sculpture-The-Great-Wall-Of-Vagina.jpg'>",
+        "XXX by Salvador Dalí", "<img src= 'https://i.pinimg.com/564x/2a/9a/1d/2a9a1df9d1286b85bcb876c9755e41b0.jpg'>",
+        "3x3 Men by Jamie McCartney", "<img src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrXUnBPr39KQ3Y5OF8RB8otmBPUP77ABSFrw&s'>", 
+        "Sacco and Vanzetti Death Masks by William Gropper", "<img src= 'https://d3525k1ryd2155.cloudfront.net/h/812/346/1354346812.0.x.jpg'>"
+    )
+)
+
+{
+(for: each _img, ... (dm-values: _references))[
+	_img
+    ]
+}
+</div>
+
+(print: (joined: "<br>", ...(dm-names: _references)))
+(link-goto: "Voltar à Seleção", "Seleção")
+
+
+:: Seleção {"position":"625,200","size":"100,100"}
+(set: _options to
+	(a: "REFERÊNCIAS", "PROCESSO", "PEÇAS FINAIS", "ESCRITOS")
+)
+
+(for: each _o, ..._options)
+	[
+    <div class ="link">
+    	(link-goto: _o)
+        </div>
+    ]
+
+
+
+:: Título {"position":"525,200","size":"100,100"}
+CORPOS INÚTEIS, CORAÇÕES DESACREDITADOS, MENTES INDICIPLINADAS
+(link-goto: "O que fazer quando o seu corpo não tem valor?", "Seleção")
+
+
+:: StoryStylesheet [stylesheet]
+.reference img {
+  width: 150px;
+  margin: 10px;
+}
+.link {
+  transition: transform 0.2s ease;
+}
+
+.link:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
